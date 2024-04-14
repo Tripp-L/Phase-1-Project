@@ -1,1 +1,32 @@
-
+{
+    "games": [
+        {
+            "id": 1,
+            "type": "Poker",
+            "name": "WSOP",
+            "image": "https://play-lh.googleusercontent.com/H4Kpn89lJMXyCFN9N32vj557Dele4O5YkRyGChX0lqArGzo_0WNUFTI7m3hAX8dKMpnh",
+            "url": "https://www.playwsop.com/play"
+        },
+        {
+            "id": 2,
+            "type": "Blackjack",
+            "name": "247 Blackjack",
+            "image": "https://www.247blackjack.com/images/247/favicon.ico",
+            "url": "https://www.247blackjack.com/"
+        },
+        {
+            "id": 4,
+            "type": "Slots",
+            "name": "Double Down",
+            "image": "https://doubledowncasino.com/images/logo.png",
+            "url": "https://doubledowncasino.com/?cid=134438&gad_source=1&gclid=CjwKCAjwt-OwBhBnEiwAgwzrUhLBLuVLjWqQ4F1IH43YdSbjZRI607sWUBkMkhpzr8t2VilgTuh_ZhoCl0YQAvD_BwE"
+        },
+        {
+            "id": 5,
+            "type": "Roulette",
+            "name": "Roulette 77",
+            "image": "https://roulette77.us/build/images/logo-mobile.png",
+            "url": "https://roulette77.us/american-roulette"
+        }
+    ]
+} 
