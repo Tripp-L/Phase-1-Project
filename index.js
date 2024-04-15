@@ -3,10 +3,11 @@ fetch("http://localhost:3000/games")
   .then((data) => displayGames(data))
 
 function displayGames(gameArr) {
-  const imgContainer = document.querySelector('#game-image-container')
 
-  // Get game names'titles' above each photo.
-  // Maybe create a container for each card ??
+  const imgContainer = document.querySelector('#game-image-container')
+  const gameListContainer = document.querySelector('#game-list')
+
+  // Get game names 'titles' above each photo.
 
     gameArr.forEach((gameObj) => { 
 
@@ -28,6 +29,31 @@ function displayGames(gameArr) {
       card.appendChild(img)
 
       imgContainer.appendChild(card)
+
+      const li = document.createElement('li')
+      li.textContent = gameObj.type
+      gameListContainer.appendChild(li)
     })
+
+const dropDown = document.querySelector('#game-dropdown')
+
+ dropDown.addEventListener('change', (e) => handleSelectGame(e)) 
+
+ function handleSelectGame(e) {
+
+    gameListContainer.textContent = ""
+
+  const filterGames = gameArr.filter((gameObj) => {
+    return gameObj.type.charAt(0) === e.target.type.value
+   })
+
+  filterGames.forEach((gameObj) => {
+     const li = document.createElement("li")
+    li.textContent = gameObj.type
+   gameContainer.appendChild(li)
+
+  })
 }
+}
+
   
