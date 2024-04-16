@@ -6,7 +6,6 @@ function displayGames(gameArr) {
 
   const imgContainer = document.querySelector('#game-image-container')
 
-  // Get game names 'titles' above each photo.
 
     gameArr.forEach((gameObj) => { 
 
@@ -28,23 +27,26 @@ function displayGames(gameArr) {
       card.appendChild(img)
 
       const urlBtn = document.createElement('button')
-      urlBtn.textContent = 'PLAY NOW'
+      urlBtn.textContent = 'PLAY NOW ▶️'
+      urlBtn.classList.add('play-btn')
       urlBtn.addEventListener('click', () => {
         window.location.href = gameObj.url
       })
       card.appendChild(urlBtn)
 
       const likeBtn = document.createElement('button')
-      likeBtn.textContent = 'Like 💸'
-      likeBtn.addEventListener('click', () => {
-        gameObj.likes ++
-        updateLikes(card, gameObj.likes)
-      })
+      likeBtn.textContent = 'Like 🎰'
+      likeBtn.classList.add('like-btn')
       card.appendChild(likeBtn)
-
-      const moreLikes = document.createElement('span')
-      moreLikes.textContent = `Likes: ${gameObj.likes}`
-      card.appendChild(moreLikes)
+  
+      const likesCount = document.createElement('span')
+      likesCount.textContent = `Likes: ${gameObj.Likes}`
+      card.appendChild(likesCount)
+  
+      likeBtn.addEventListener('click', () => {
+        gameObj.Likes++
+        likesCount.textContent = `Likes: ${gameObj.Likes}`; // updates likes
+      })
       
       imgContainer.appendChild(card)
     })
@@ -83,11 +85,4 @@ function displayGames(gameArr) {
       }
       })
     }
-
-    function updateLikes(card, likes) {
-      
-      const moreLikes = card.querySelector('span')
-      moreLikes.textContent = `Likes: ${likes}`
-    }
-  
 

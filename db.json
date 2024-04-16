@@ -28,7 +28,7 @@
             "id": 5,
             "type": "Roulette",
             "name": "Roulette 77",
-            "image": "https://roulette77.us/build/images/logo-mobile.png",
+            "image": "https://yt3.googleusercontent.com/EtGan8GxyNrgpmRe_bGfyfWaGEiCl_nfRpRTdDmv6EMgvAFI1ZAIEFUH6o0iOkwHsxWoZph6=s900-c-k-c0x00ffffff-no-rj",
             "url": "https://roulette77.us/american-roulette",
             "Likes": 0
         },
@@ -36,7 +36,7 @@
             "id": 6,
             "type": "Baccarat",
             "name": "Wizard of Odds",
-            "image": "https://www.onlineblackjack.com/wp-content/uploads/WoO-580x156.jpg",
+            "image": "https://img.gamepix.com/games/baccarat/cover/baccarat.png?width=600&height=340&fit=cover&quality=90",
             "url": "https://wizardofodds.com/play/baccarat/",
             "Likes": 0
         },
@@ -44,7 +44,7 @@
             "id": 7,
             "type": "Craps",
             "name": "Vegas Slots Online",
-            "image": "https://www.vegasslotsonline.com/news/wp-content/uploads/2021/02/vso2.png",
+            "image": "https://play-lh.googleusercontent.com/Y7xzS-pLALhgbOBYTrjxLSebNsbsQ-htfFgZ5W4mew98zmeg-SEB948j_NdvBXZ6xxg",
             "url": "https://www.vegasslotsonline.com/table-games/craps/",
             "Likes": 0
         },
@@ -52,9 +52,9 @@
             "id": 8,
             "type": "Bingo",
             "name": "7 Seas Casino",
-            "image": "https://cdn-ssl.7seascasino.com/i/assets/textures_ab3/png/sc/en/1080/shared/logos/main_logo_900.png?v=421.11192.15-a-main-2024-03-31-03",
+            "image": "https://o.aolcdn.com/hss/storage/midas/3fe4326210f799cac17d1fe4c73d7ae3/204628985/bingo-games.png",
             "url": "https://www.7seascasino.com/fx/?fromhtml=1&frontpage=2&alt=0&link=gameid%2F698&tr=1",
-            "likes": 0
+            "Likes": 0
         },
         {
             "id": 9,
@@ -62,7 +62,7 @@
             "name": "Combo Keno",
             "image": "https://static.casino.guru/pict/558925/Combo-Keno-10.png?timestamp=1694007164000&imageDataId=605838&width=270&height=208&webp=true", 
             "url": "https://casino.guru/combo-keno-10-play-free",
-            "likes": 0
+            "Likes": 0
         },
         {
             "id": 10,
@@ -76,9 +76,41 @@
             "id": 11,
             "type": "Casino War",
             "name": "Slotozilla",
-            "image": "https://cdn.newswire.com/files/x/05/fb/04267b1926dc3b1bab17bdeb928a.png", 
+            "image": "https://youbet-media-library-prod.s3.amazonaws.com/You_Tube_Splash_CSP_fe9aab8d16.jpg", 
             "url": "https://www.slotozilla.com/free-slots/casino-war",
             "Likes": 0  
+        },
+        {
+            "id": 12,
+            "type": "Bourree (Booray)",
+            "name": "Kongregate",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmilGBL6x_crGdSKODgLDT5lo624LNTt7wtOKv_wohB4t_dAoRN9XDDD13JL9sElEhnms&usqp=CAU",
+            "url": "https://www.kongregate.com/games/winningmovesusa/booray",
+            "Likes": 0
+        },
+        {
+            "id": 13,
+            "type": "Rummy",
+            "name": "Play Rummy",
+            "image": "https://playpager.com/wp-content/uploads/2022/12/Rummy-card-game.jpg",
+            "url": "https://www.playrummy-online.com/",
+            "Likes": 0
+        },
+        {
+            "id": 14,
+            "type": "Mexican Train (Dominoes)",
+            "name": "Mexican Train",
+            "image": "https://mexicantrain.com/img/mexican-train-dominoes-splashscreen.jpg",
+            "url": "https://mexicantrain.com/",
+            "Likes": 0
+        },
+        {
+            "id": 15,
+            "type": "Spades",
+            "name": "Play Spades",
+            "image": "https://play-lh.googleusercontent.com/wnkqRjftkdJBBNye3j3USDzUw16jB3bdOLDRcys1ozotJvt3GQBzXI8hRhTIqXInyw",
+            "url": "https://playspades-online.com/",
+            "Likes": 0
         }
     ]
 } 
