@@ -25,18 +25,30 @@
 
     <hr> <!-- makes horizontal line that makes a break in the page content -->
 
-    <label for="select-game">Filter Games by First Letter:</label>
+    <label for="select-game">Find Your Favorite Games (by first letter):</label>
     <select id="game-dropdown" name="select-game">
-        <option value="a">A</option>
-        <option value="b">B</option> 
+        <option value="b">B</option>
         <option value="c">C</option>
-        <option value="d">D</option>
-        <option value="e">E</option>
-        <option value="f">F</option>
+        <option value="k">K</option>
+        <option value="p">P</option>
+        <option value="r">R</option>
+        <option value="s">S</option>
     </select>
 
     <ul id="game-list"></ul>
 
+    <hr>
+
+<form id="Reviews">
+    <h3>Game Reviews:</h3>
+    <label for="game">Game: </label>
+    <input type="text" name="game" id="game" />
+    <label for="rating">Rating: </label>
+    <input type="number" name="rating" id="rating" />
+    <label for="comment">Comments: </label>
+    <textarea name="comment" name="comment" id="comment"></textarea>
+  <input type="submit" id='submit-button' value="Submit" />
+  </form>
 
 
 </body>

@@ -5,7 +5,6 @@ fetch("http://localhost:3000/games")
 function displayGames(gameArr) {
 
   const imgContainer = document.querySelector('#game-image-container')
-  const gameListContainer = document.querySelector('#game-list')
 
   // Get game names 'titles' above each photo.
 
@@ -28,32 +27,67 @@ function displayGames(gameArr) {
       img.style.height = '200px'
       card.appendChild(img)
 
-      imgContainer.appendChild(card)
+      const urlBtn = document.createElement('button')
+      urlBtn.textContent = 'PLAY NOW'
+      urlBtn.addEventListener('click', () => {
+        window.location.href = gameObj.url
+      })
+      card.appendChild(urlBtn)
 
-      const li = document.createElement('li')
-      li.textContent = gameObj.type
-      gameListContainer.appendChild(li)
+      const likeBtn = document.createElement('button')
+      likeBtn.textContent = 'Like 💸'
+      likeBtn.addEventListener('click', () => {
+        gameObj.likes ++
+        updateLikes(card, gameObj.likes)
+      })
+      card.appendChild(likeBtn)
+
+      const moreLikes = document.createElement('span')
+      moreLikes.textContent = `Likes: ${gameObj.likes}`
+      card.appendChild(moreLikes)
+      
+      imgContainer.appendChild(card)
     })
 
-const dropDown = document.querySelector('#game-dropdown')
-
- dropDown.addEventListener('change', (e) => handleSelectGame(e)) 
-
- function handleSelectGame(e) {
-
-    gameListContainer.textContent = ""
-
-  const filterGames = gameArr.filter((gameObj) => {
-    return gameObj.type.charAt(0) === e.target.type.value
-   })
-
-  filterGames.forEach((gameObj) => {
-     const li = document.createElement("li")
-    li.textContent = gameObj.type
-   gameContainer.appendChild(li)
-
-  })
-}
-}
-
+    const dropDown = document.querySelector('#game-dropdown')
+    dropDown.addEventListener('change', (e) => {
+      const selectedLetter = e.target.value.toLowerCase()
+      filterGames(gameArr, selectedLetter)
+    })
+  }
   
+  function filterGames(gameArr, selectedLetter) {
+
+    const gameListContainer = document.querySelector('#game-list')
+    gameListContainer.innerHTML = ''
+    
+    gameArr.forEach((gameObj) => {
+
+      if (gameObj.type.toLowerCase().startsWith(selectedLetter)) {
+        const li = document.createElement('li')
+        li.textContent = gameObj.type
+        gameListContainer.appendChild(li)
+      }
+    })
+  
+    gameArr.forEach((gameObj) => {
+
+        const card = imgContainer.querySelector(`[data-type="${gameObj.type}"]`)
+        if (card) {
+          if (gameObj.type.toLowerCase().startsWith(selectedLetter)) {
+          card.style.display = 'block'
+        } 
+        else {
+          card.style.display = 'none'
+        }
+      }
+      })
+    }
+
+    function updateLikes(card, likes) {
+      
+      const moreLikes = card.querySelector('span')
+      moreLikes.textContent = `Likes: ${likes}`
+    }
+  
+
