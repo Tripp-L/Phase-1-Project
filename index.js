@@ -3,86 +3,129 @@ fetch("http://localhost:3000/games")
   .then((data) => displayGames(data))
 
 function displayGames(gameArr) {
+  const imgContainer = document.querySelector('#game-image-container')
 
+  gameArr.forEach((gameObj) => { 
+    if (!gameObj.likes) {
+      gameObj.likes = 0
+    }
+
+    const card = createGameCard(gameObj)
+    imgContainer.appendChild(card)
+  })
+
+  const dropDown = document.querySelector('#game-dropdown')
+  dropDown.addEventListener('change', (e) => {
+    const selectedLetter = e.target.value.toLowerCase()
+    filterGames(gameArr, selectedLetter)
+  })
+
+  const gameForm = document.querySelector('#gameForm')
+  gameForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const newGame = collectFormData(gameForm)
+    addNewGameToPage(newGame)
+  })
+
+  const reviewForm = document.querySelector('#Reviews')
+  reviewForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const reviewData = collectFormData(reviewForm)
+    addReviewToPage(reviewData);
+  })
+}
+
+function createGameCard(gameObj) {
+  const card = document.createElement('div')
+  card.classList.add('game-card')
+
+  const type = document.createElement('p')
+  type.textContent = gameObj.type
+  card.appendChild(type)
+
+  const name = document.createElement('h3')
+  name.textContent = gameObj.name
+  card.appendChild(name)
+
+  const img = document.createElement('img')
+  img.src = gameObj.image
+  img.style.width = '250px'
+  img.style.height = '200px'
+  card.appendChild(img)
+
+  const urlBtn = createButton('PLAY NOW ▶️', 'play-btn')
+  urlBtn.addEventListener('click', () => {
+    window.location.href = gameObj.url
+  })
+  card.appendChild(urlBtn)
+
+  const likeBtn = createButton('Like 🎰', 'like-btn')
+  const likesCount = document.createElement('span')
+  likesCount.textContent = `Likes 🎲: ${gameObj.likes}`
+  likeBtn.addEventListener('click', () => {
+    gameObj.likes++
+    likesCount.textContent = `Likes: ${gameObj.likes}`
+  })
+  card.appendChild(likeBtn)
+  card.appendChild(likesCount)
+
+  return card
+}
+
+function createButton(text, className) {
+  const button = document.createElement('button')
+  button.textContent = text
+  button.classList.add(className)
+  return button
+}
+
+function collectFormData(form) {
+  const formData = new FormData(form)
+  const data = {}
+  formData.forEach((value, key) => {
+    data[key] = value
+  })
+  return data
+}
+
+function addNewGameToPage(game) {
   const imgContainer = document.querySelector('#game-image-container')
 
 
-    gameArr.forEach((gameObj) => { 
-
-      const card = document.createElement('div')
-      card.classList.add('game-card')
-
-      const type = document.createElement('p')
-      type.textContent = gameObj.type
-      card.appendChild(type)
-
-      const name = document.createElement('h3')
-      name.textContent = gameObj.name
-      card.appendChild(name)
-
-      const img = document.createElement('img')
-      img.src = gameObj.image
-      img.style.width = '250px'
-      img.style.height = '200px'
-      card.appendChild(img)
-
-      const urlBtn = document.createElement('button')
-      urlBtn.textContent = 'PLAY NOW ▶️'
-      urlBtn.classList.add('play-btn')
-      urlBtn.addEventListener('click', () => {
-        window.location.href = gameObj.url
-      })
-      card.appendChild(urlBtn)
-
-      const likeBtn = document.createElement('button')
-      likeBtn.textContent = 'Like 🎰'
-      likeBtn.classList.add('like-btn')
-      card.appendChild(likeBtn)
-  
-      const likesCount = document.createElement('span')
-      likesCount.textContent = `Likes: ${gameObj.Likes}`
-      card.appendChild(likesCount)
-  
-      likeBtn.addEventListener('click', () => {
-        gameObj.Likes++
-        likesCount.textContent = `Likes: ${gameObj.Likes}`; // updates likes
-      })
-      
-      imgContainer.appendChild(card)
-    })
-
-    const dropDown = document.querySelector('#game-dropdown')
-    dropDown.addEventListener('change', (e) => {
-      const selectedLetter = e.target.value.toLowerCase()
-      filterGames(gameArr, selectedLetter)
-    })
+  const newGame = {
+    name: game.gameName,
+    type: game.gameType,
+    image: game.gameImage,
+    url: game.gameURL,
+    likes: 0, 
   }
-  
-  function filterGames(gameArr, selectedLetter) {
 
-    const gameListContainer = document.querySelector('#game-list')
-    gameListContainer.innerHTML = ''
-    
-    gameArr.forEach((gameObj) => {
+  const newCard = createGameCard(newGame)
+  imgContainer.appendChild(newCard)
+}
 
-      if (gameObj.type.toLowerCase().startsWith(selectedLetter)) {
-        const li = document.createElement('li')
-        li.textContent = gameObj.type
-        gameListContainer.appendChild(li)
-      }
-    })
-  
-    gameArr.forEach((gameObj) => {
+function addReviewToPage(reviewData) {
+  const reviewsContainer = document.querySelector('#reviews-container')
 
-        const card = imgContainer.querySelector(`[data-type="${gameObj.type}"]`)
-        if (card) {
-          if (gameObj.type.toLowerCase().startsWith(selectedLetter)) {
-          card.style.display = 'block'
-        } 
-        else {
-          card.style.display = 'none'
-        }
-      }
-      })
-    }
+  const reviewCard = createReviewCard(reviewData)
+  reviewsContainer.appendChild(reviewCard)
+}
 
+function createReviewCard(reviewData) {
+  const card = document.createElement('div')
+  card.classList.add('review-card')
+
+  const gameName = document.createElement('h3')
+  gameName.textContent = `Game: ${reviewData.game}`
+  card.appendChild(gameName)
+
+  const rating = document.createElement('p')
+  rating.textContent = `Rating: ${reviewData.rating}`
+  card.appendChild(rating)
+
+  const comment = document.createElement('p')
+  comment.textContent = `Comment: ${reviewData.comment}`
+  card.appendChild(comment)
+
+  return card
+}

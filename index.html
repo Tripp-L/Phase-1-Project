@@ -10,18 +10,21 @@
 
 <body>
     <header>
-        <img src="https://img.freepik.com/free-vector/welcome-casino-background_1314-310.jpg?w=826&t=st=1713295732~exp=1713296332~hmac=be947e8bca7ebdfdc5a506483bd0639e1670c8f416ed31fb0773cee4c28cd1e8" 
+        <img src="https://static.vecteezy.com/system/resources/previews/002/152/770/non_2x/online-casino-with-slot-machine-and-playing-cards-poker-free-vector.jpg" 
         alt="Header Image" class="header-image">
     </header>
+
+    <hr>
 
     <div id="game-image-container">
         <style>
             .game-card {
-              border: 5px solid #f00808; /* color and thickness of border  */
+              border: 3mm ridge #f00808;
               padding: 5px; /* padding for better spacing */
               margin: 5px; /* margin for spacing between cards */
               display: inline-block; /* cards in a row */
               border-radius: 10px;
+              
             }
           </style>
     </div>
@@ -30,12 +33,32 @@
 
     <label for="select-game">Find Your Favorite Games (by first letter):</label>
     <select id="game-dropdown" name="select-game">
+        <option value="a">A</option>
         <option value="b">B</option>
         <option value="c">C</option>
+        <option value="d">D</option>
+        <option value="e">E</option>
+        <option value="f">F</option>
+        <option value="g">G</option>
+        <option value="h">H</option>
+        <option value="i">I</option>
+        <option value="j">J</option>
         <option value="k">K</option>
+        <option value="l">L</option>
+        <option value="m">M</option>
+        <option value="n">N</option>
+        <option value="o">O</option>
         <option value="p">P</option>
+        <option value="q">Q</option>
         <option value="r">R</option>
         <option value="s">S</option>
+        <option value="t">T</option>
+        <option value="u">U</option>
+        <option value="v">V</option>
+        <option value="w">W</option>
+        <option value="x">X</option>
+        <option value="y">Y</option>
+        <option value="z">Z</option>
     </select>
 
     <ul id="game-list"></ul>
@@ -46,12 +69,33 @@
     <h3>Game Reviews:</h3>
     <label for="game">Game: </label>
     <input type="text" name="game" id="game" />
-    <label for="rating">Rating: </label>
-    <input type="number" name="rating" id="rating" />
+    <label for="rating"> Rating: </label>
+    <input type="number"  name="rating"  id="rating"  min="1" max="10"/>
     <label for="comment">Comments: </label>
     <textarea name="comment" name="comment" id="comment"></textarea>
-  <input type="submit" id='submit-button' value="Submit" />
+    <input type="submit" id='submit-button' value="Submit" />
   </form>
+
+  <hr>
+
+<form id="gameForm">
+    <h3>Add a New Game:</h3>
+    <label for="gameName">Game Name:</label>
+    <input type="text" id="gameName" name="gameName" required>
+    <br>
+    <label for="gameType">Game Type:</label>
+    <input type="text" id="gameType" name="gameType" required>
+    <br>
+    <label for="gameImage">Image URL:</label>
+    <input type="text" id="gameImage" name="gameImage" required>
+    <br>
+    <label for="gameURL">Game URL:</label>
+    <input type="text" id="gameURL" name="gameURL" required>
+    <br>
+    <input type="submit" value="Submit" />
+</form>
+
+<div id="reviews-container"></div>
 
 
 </body>
