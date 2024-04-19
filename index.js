@@ -31,7 +31,7 @@ function displayGames(gameArr) {
   reviewForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const reviewData = collectFormData(reviewForm)
-    addReviewToPage(reviewData);
+    addReviewToPage(reviewData)
   })
 }
 
@@ -136,7 +136,7 @@ function filterGames(gameArr, letter) {
 
 function displayFilteredGames(filteredGames) {
   const gameList = document.querySelector('#game-list')
-  gameList.innerHTML = '' // Clear the previous list
+  gameList.innerHTML = ''
 
   filteredGames.forEach((game) => {
     const listItem = document.createElement('li')
