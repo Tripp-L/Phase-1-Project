@@ -7,7 +7,7 @@ function displayGames(gameArr) {
 
   gameArr.forEach((gameObj) => { 
     if (!gameObj.likes) {
-      gameObj.likes = 0
+      gameObj.likes = 0 
     }
 
     const card = createGameCard(gameObj)
@@ -91,7 +91,6 @@ function collectFormData(form) {
 function addNewGameToPage(game) {
   const imgContainer = document.querySelector('#game-image-container')
 
-
   const newGame = {
     name: game.gameName,
     type: game.gameType,
@@ -128,4 +127,20 @@ function createReviewCard(reviewData) {
   card.appendChild(comment)
 
   return card
+}
+
+function filterGames(gameArr, letter) {
+  const filteredGames = gameArr.filter((game) => game.type.toLowerCase().startsWith(letter))
+  displayFilteredGames(filteredGames)
+}
+
+function displayFilteredGames(filteredGames) {
+  const gameList = document.querySelector('#game-list')
+  gameList.innerHTML = '' // Clear the previous list
+
+  filteredGames.forEach((game) => {
+    const listItem = document.createElement('li')
+    listItem.textContent = game.type
+    gameList.appendChild(listItem)
+  })
 }
